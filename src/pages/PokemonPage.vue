@@ -13,7 +13,9 @@
 <script>
 import pokemonPicture from '../components/PokemonPicture.vue';
 import PokemonOption from '../components/PokemonOption.vue';
+import getPokemonOptions from '../helpers/getPokemonOPtions';
 
+console.log(getPokemonOptions());
 export default {
   name: 'PokemonPage',
   components: {
