@@ -13,8 +13,6 @@ const getPokemonOptions = async () => {
         return Math.random() - 0.5;
     });
     const pokemonsRespuesta =  await getPokemonNames(mixedPokemon.slice(0,4)); // solo obtenemos los primeros 4 pokemons
-
-    console.log(pokemonsRespuesta);
      return pokemonsRespuesta;
 }
 
