@@ -10,8 +10,10 @@
         @selection-pokemon="chekAnswer($event)"
       ></pokemon-option>
 
-      <h2>{{ message }}</h2>
-      <button>Nuevo juego</button>
+      <template v-if="showAnswer">
+        <h2 class="fade-in">{{ message }}</h2>
+        <button @click="newGame()">Nuevo juego</button>
+      </template>
     </div>
   </div>
 </template>
@@ -43,6 +45,7 @@ export default {
       this.pokemon = this.pokemonArr[rndInt];
     },
     chekAnswer(pokemonId) {
+      this.showAnswer = true;
       if (this.pokemon.id == pokemonId) {
         this.showPokemon = true;
         this.message = `Correcto ${this.pokemon.name}`;
@@ -50,6 +53,15 @@ export default {
         this.message = `Oops, era ${this.pokemon.name}`;
       }
     },
+    newGame() {
+      this.showPokemon =  false;
+      this.showAnswer = false;
+      this.pokemonArr = [];
+      this.message = '';
+      this.pokemon = null;
+      this.mixPokemonArray();
+
+    }
   },
   mounted() {
     this.mixPokemonArray();
